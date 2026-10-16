@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Language Practice Exam: 20 MCQs</title>
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2433;--mute:#5d6577;--line:#d9d6cc;--acc:#1f4e79;--accbg:#e4edf6;--ok:#17703a;--okbg:#e2f3e8;--bad:#a82424;--badbg:#fbe6e6;--warn:#8a5a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--card:#1c222c;--ink:#e8ebf1;--mute:#9aa3b5;--line:#2f3744;--acc:#7fb2e5;--accbg:#22334a;--ok:#5fd18a;--okbg:#17321f;--bad:#ff8a8a;--badbg:#3a1c1c;--warn:#e3b04b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14181f;--card:#1c222c;--ink:#e8ebf1;--mute:#9aa3b5;--line:#2f3744;--acc:#7fb2e5;--accbg:#22334a;--ok:#5fd18a;--okbg:#17321f;--bad:#ff8a8a;--badbg:#3a1c1c;--warn:#e3b04b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Georgia,"Times New Roman",serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 80px}
+header{padding:28px 0 12px}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 14px;font-family:system-ui,sans-serif;font-size:.92rem}
+.rules{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:4px;font-family:system-ui,sans-serif;font-size:.9rem}
+.rules select{font:inherit;padding:2px 4px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:4px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.88rem;display:flex;gap:12px;align-items:center}
+.track{flex:1;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--acc);transition:width .2s}
+.q{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:16px 0;padding:16px}
+.q h2{font-size:1rem;margin:0 0 10px;font-weight:600}
+.n{font-family:system-ui,sans-serif;color:var(--acc);font-weight:700;margin-right:6px}
+.ctx{font-size:.9rem;background:var(--bg);border:1px solid var(--line);padding:8px 12px;border-radius:6px;margin:0 0 10px}
+.ctx ol{margin:4px 0 0;padding-left:20px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:6px;padding:9px 12px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt:focus-visible,button.main:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.opt b{font-family:system-ui,sans-serif;min-width:1.2em}
+.opt.sel{background:var(--accbg);border-color:var(--acc)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;font-size:.9rem;font-family:system-ui,sans-serif;padding:8px 12px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.review .exp{display:block}
+.tag{font-weight:700}
+.tag.ok{color:var(--ok)}.tag.bad{color:var(--bad)}.tag.blank{color:var(--warn)}
+button.main{font:600 1rem system-ui,sans-serif;background:var(--acc);color:var(--bg);border:0;border-radius:6px;padding:12px 22px;cursor:pointer;margin:6px 8px 0 0}
+button.alt{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+#res{display:none;background:var(--card);border:2px solid var(--acc);border-radius:8px;padding:20px;margin:18px 0;font-family:system-ui,sans-serif}
+#res .big{font-size:2.6rem;font-weight:700;line-height:1.1;font-family:Georgia,serif}
+#res table{border-collapse:collapse;margin:10px 0;font-size:.92rem}
+#res td{padding:3px 14px 3px 0}
+.note{color:var(--mute);font-size:.82rem;font-family:system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>English language practice exam</h1>
+<p class="sub">20 random questions (grammar, vocabulary, functions, British/American English, writing) from the November 2025 paper, in random order. Score out of 20.</p>
+<div class="rules"><b>Marking (Canadian system):</b> correct answer +1 · blank 0 · wrong answer −<select id="pen"><option value="0.25" selected>0.25</option><option value="0.33">0.33</option><option value="0.5">0.5</option><option value="1">1</option></select> point. Click a chosen answer again to clear it and leave the question blank. The final grade cannot go below 0.</div>
+</header>
+<div class="bar"><span id="cnt">0 / 20 answered</span><div class="track"><div class="fill" id="fill"></div></div></div>
+<div id="qs"></div>
+<div id="res"></div>
+<div id="act"><button class="main" id="sub">Submit exam</button></div>
+<p class="note">Reading-comprehension questions were left out. The answer key is mine, not the ticks printed on the scanned paper, because some of those ticks are wrong (for example Q48, Q60 and Q37 of the original). Each explanation names the original question number.</p>
+</div>
+<script>
+const Q=[
+["The company managed to ______ of public criticism by issuing a transparent apology and implementing sweeping reforms.",["weather the storm","shake the leg","kick the bucket","bite the bullet","None of the above"],0,"Original Q49 · Idioms. To weather the storm means to survive a difficult period. The other idioms do not fit the meaning."],
+["When preparing to board the international flight, James realized not only ______ his passport, but he also left his wallet and ID in the hotel safe.",["did he forget","he forgot","has he forgotten","he has forgotten","None of the above"],0,"Original Q18 · Grammar. A sentence starting with a negative adverbial (not only) takes inversion, so the auxiliary comes first: did he forget."],
+["Which of the following expressions would most likely function as an indirect complaint in a professional setting?",["\"This is unacceptable. I've been waiting for hours.\"","\"I noticed the report hasn't been updated yet; Was there a delay?\"","\"You never get anything done on time.\"","\"I need this sorted out immediately.\"","None of the above"],1,"Original Q56 · Functions. B complains by asking a polite question, so it is indirect. The others are direct complaints or demands."],
+["Which of the following sentences contains a punctuation error?",["Her research focuses on climate change, renewable energy, and biodiversity.","We need three things: clarity, cohesion, and accuracy.","I enjoy long walks; they help me think clearly.","The presentation was long. However it was insightful.","None of the above"],3,"Original Q72 · Writing mechanics. A sentence-initial However needs a comma after it: However, it was insightful."],
+["No sooner ______ the ambassador begun her speech at the international summit than a sudden power outage disrupted the entire event.",["had","has","did","would","None of the above"],0,"Original Q21 · Grammar. No sooner is followed by inversion with the past perfect: No sooner had she begun ... than."],
+["A British tourist in New York asks where the nearest petrol station is but receives a confused look. Which of the following American English equivalents matches the British term \"petrol station\"?",["Gas station","Gas stop","Gas bar","Filling station","None of the above"],0,"Original Q58 · British vs American English. Petrol station (UK) = gas station (US)."],
+["The athlete would have made it to the finals if she ______ her training schedule more seriously in the lead-up to the championship.",["took","had taken","has taken","would have taken","None of the above"],1,"Original Q22 · Grammar. Third conditional: if + past perfect, would have + past participle."],
+["Which sentence would most likely function as a topic sentence in a paragraph about the benefits of volunteering?",["Volunteering helps communities rebuild after disasters, wars or social upheavals.","Many volunteers travel abroad during the summer holidays to gain more experience.","Volunteering provides opportunities for personal growth, skill development, and social engagement.","Some people prefer to be paid for the work they do instead of volunteering.","None of the above"],2,"Original Q65 · Writing. A topic sentence states the general main idea of the paragraph (benefits). A and B are too narrow, and D is off-topic."],
+["Despite her impressive qualifications, Julia eventually resigned, stating she could no longer ______ the CEO's erratic decisions and lack of transparency.",["put up with","give up on","fall out with","catch up with","None of the above"],0,"Original Q44 · Phrasal verbs. To put up with = to tolerate."],
+["During a professional debate on climate policy, one expert responds to another's claim with: \"I see where you're coming from, and it's a valid perspective. However, recent data from the UN indicates a slightly different trend we might want to consider.\" What function is expressed in this quote?",["Showing sympathy","Softening disagreement","Agreeing fully","Shifting the topic","None of the above"],1,"Original Q52 · Functions. Acknowledging the other view, then however, is a polite way to disagree."],
+["It was strongly advised by the council that the architect ______ alternative blueprints before the final presentation.",["will review","reviewed","reviews","review","None of the above"],3,"Original Q37 · Grammar. After advise that (mandative subjunctive), the verb is in the base form: that the architect review."],
+["The following sentences belong to the same paragraph. What order would make the paragraph a logically coherent and cohesive text?",["b-e-c-a-f-d","b-d-c-a-f-e","b-a-f-c-d-e","b-c-d-f-a-e","None of the above"],0,"Original Q80 · Cohesion. Main idea (b), positive side (e), example (c), contrast with However (a), opponents' argument (f), conclusion with therefore (d).",
+"<ol type=\"a\"><li>However, the transition also raises ethical concerns, particularly around job displacement and economic inequality.</li><li>Artificial Intelligence (AI) is reshaping the future of work in ways both promising and problematic.</li><li>For instance, routine-based tasks are increasingly being performed by intelligent systems with remarkable speed and precision.</li><li>Policymakers and educators must therefore rethink training models and curricula to prepare the workforce for an AI-driven economy.</li><li>Automation and machine learning are positively transforming industries such as manufacturing, finance, and even journalism.</li><li>Opponents argue that while AI may enhance overall productivity, it may eliminate some roles, paving the way to more social problems.</li></ol>"],
+["The offender was caught red-handed, so the judge's ruling was a mere ______.",["coincidence","suspicion","formality","estimation","None of the above"],2,"Original Q43 · Vocabulary. If the offender was caught red-handed, the ruling was only a formality (a matter of procedure)."],
+["Which word can be both a verb and a noun?",["hope","table","drive","All of the above","None of the above"],3,"Original Q48 · Word class. All three work as verbs and nouns: to hope / a hope, to table / a table, to drive / a drive."],
+["By the end of this fiscal year, the company ______ operating in Latin America for over two decades.",["had been","have been","will have been","will be","None of the above"],2,"Original Q34 · Grammar. By + future time point with for + duration takes the future perfect: will have been."],
+["During a strategy meeting, the head of department cautiously says: \"One possible avenue we might explore - assuming we want to avoid overextending the team - is adjusting the delivery phase slightly.\" What is the speaker mainly doing here?",["Hedging a criticism","Issuing an indirect command","Expressing uncertainty","Making a suggestion","None of the above"],3,"Original Q54 · Functions. One possible avenue we might explore introduces a tentative suggestion."],
+["Which of the following is the correct pronunciation of the word 'schedule' in British English?",["/ˈtʃedjuːl/","/ˈʃedjuːl/","/ˈskedʒuːl/","/ˈsketʃuːl/","None of the above"],1,"Original Q60 · Pronunciation. British English: /ˈʃedjuːl/ (sh-). American English: /ˈskedʒuːl/ (sk-)."],
+["The room was in complete chaos after the seminar, yet nobody claimed responsibility for it, ______?",["wasn't it","didn't they","did they","were they","None of the above"],2,"Original Q32 · Question tags. The main clause is negative in meaning (nobody), so the tag is positive, with they: did they?"],
+["Which organizational pattern would best suit a procedural or instructional writing, such as a how-to guide?",["Classification","Sequencing","Definition","Comparison","None of the above"],1,"Original Q75 · Writing. Instructions follow steps in order, which is sequencing."],
+["His speech was full of ______ phrases and lacked originality.",["ambiguous","idiomatic","poetic","cliché","None of the above"],3,"Original Q46 · Vocabulary. A cliché phrase is overused and unoriginal, which matches lacked originality."]
+];
+const L="ABCDE",ans=Array(Q.length).fill(-1);let done=false;
+const $=id=>document.getElementById(id);
+$("qs").innerHTML=Q.map((q,i)=>`<section class="q" id="q${i}"><h2><span class="n">Q${i+1}</span>${q[0]}</h2>${q[4]?`<div class="ctx">${q[4]}</div>`:""}${q[1].map((o,j)=>`<button class="opt" data-i="${i}" data-j="${j}"><b>${L[j]}</b><span>${o}</span></button>`).join("")}<div class="exp" id="e${i}"></div></section>`).join("");
+function prog(){const n=ans.filter(a=>a>=0).length;$("cnt").textContent=n+" / "+Q.length+" answered";$("fill").style.width=(n/Q.length*100)+"%"}
+$("qs").onclick=e=>{const b=e.target.closest(".opt");if(!b||done)return;const i=+b.dataset.i,j=+b.dataset.j;ans[i]=ans[i]===j?-1:j;document.querySelectorAll("#q"+i+" .opt").forEach((o,k)=>o.classList.toggle("sel",ans[i]===k));prog()};
+function finish(){
+const pen=+$("pen").value;let c=0,w=0,b=0;
+Q.forEach((q,i)=>{const a=ans[i];if(a<0)b++;else if(a===q[2])c++;else w++;
+const sec=$("q"+i);sec.classList.add("review");
+sec.querySelectorAll(".opt").forEach((o,k)=>{o.disabled=true;o.classList.remove("sel");if(k===q[2])o.classList.add("ok");else if(k===a)o.classList.add("bad")});
+const t=a<0?'<span class="tag blank">Not answered (0)</span>':a===q[2]?'<span class="tag ok">Correct (+1)</span>':'<span class="tag bad">Wrong (−'+pen+')</span>';
+$("e"+i).innerHTML=t+" · Correct answer: <b>"+L[q[2]]+"</b>. "+q[3]});
+$("pen").disabled=true;done=true;
+const raw=c-w*pen,fin=Math.max(0,raw),f=x=>(Math.round(x*100)/100).toString();
+$("res").style.display="block";
+$("res").innerHTML=`<div class="big">${f(fin)} / 20</div><table><tr><td>Correct answers</td><td>${c} × +1 = +${c}</td></tr><tr><td>Wrong answers</td><td>${w} × −${pen} = −${f(w*pen)}</td></tr><tr><td>Not answered</td><td>${b} × 0 = 0</td></tr><tr><td>Raw total</td><td>${f(raw)}${raw<0?" (set to 0)":""}</td></tr></table><p class="note">Scroll down to review every question with its correct answer and explanation.</p>`;
+$("act").innerHTML='<button class="main" id="again">Retake exam</button><button class="main alt" id="top">Back to score</button>';
+$("again").onclick=()=>location.reload();$("top").onclick=()=>$("res").scrollIntoView({behavior:"smooth"});
+$("res").scrollIntoView({behavior:"smooth"})}
+$("sub").onclick=finish;
+prog();
+</script>
+</body>
+</html>
